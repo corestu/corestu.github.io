@@ -1,0 +1,166 @@
+<!DOCTYPE html><html lang="zh-CN" class="overflow-y-scroll"> <head><meta charset="UTF-8"><script>
+    if (localStorage.getItem("theme") === null) {
+        document.documentElement.setAttribute("data-theme", "light");
+    } else {
+        document.documentElement.setAttribute(
+            "data-theme",
+            localStorage.getItem("theme"),
+        );
+    }
+</script> <script type="module">var l={exports:{}},d;function h(){return d||(d=1,(function(n,f){function r(){var c=document.querySelector("[data-toggle-theme]"),e=c?c.getAttribute("data-key"):null;(function(t=localStorage.getItem(e||"theme")){localStorage.getItem(e||"theme")&&(document.documentElement.setAttribute("data-theme",t),c&&[...document.querySelectorAll("[data-toggle-theme]")].forEach(a=>{a.classList.add(c.getAttribute("data-act-class"))}))})(),c&&[...document.querySelectorAll("[data-toggle-theme]")].forEach(t=>{t.addEventListener("click",function(){var a=t.getAttribute("data-toggle-theme");if(a){var o=a.split(",");document.documentElement.getAttribute("data-theme")==o[0]?o.length==1?(document.documentElement.removeAttribute("data-theme"),localStorage.removeItem(e||"theme")):(document.documentElement.setAttribute("data-theme",o[1]),localStorage.setItem(e||"theme",o[1])):(document.documentElement.setAttribute("data-theme",o[0]),localStorage.setItem(e||"theme",o[0]))}[...document.querySelectorAll("[data-toggle-theme]")].forEach(i=>{i.classList.toggle(this.getAttribute("data-act-class"))})})})}function m(){var c=document.querySelector("[data-set-theme='']"),e=c?c.getAttribute("data-key"):null;(function(t=localStorage.getItem(e||"theme")){if(t!=null&&t!="")if(localStorage.getItem(e||"theme")&&localStorage.getItem(e||"theme")!=""){document.documentElement.setAttribute("data-theme",t);var a=document.querySelector("[data-set-theme='"+t.toString()+"']");a&&([...document.querySelectorAll("[data-set-theme]")].forEach(o=>{o.classList.remove(o.getAttribute("data-act-class"))}),a.getAttribute("data-act-class")&&a.classList.add(a.getAttribute("data-act-class")))}else{var a=document.querySelector("[data-set-theme='']");a.getAttribute("data-act-class")&&a.classList.add(a.getAttribute("data-act-class"))}})(),[...document.querySelectorAll("[data-set-theme]")].forEach(t=>{t.addEventListener("click",function(){document.documentElement.setAttribute("data-theme",this.getAttribute("data-set-theme")),localStorage.setItem(e||"theme",document.documentElement.getAttribute("data-theme")),[...document.querySelectorAll("[data-set-theme]")].forEach(a=>{a.classList.remove(a.getAttribute("data-act-class"))}),t.getAttribute("data-act-class")&&t.classList.add(t.getAttribute("data-act-class"))})})}function u(){var c=document.querySelector("select[data-choose-theme]"),e=c?c.getAttribute("data-key"):null;(function(t=localStorage.getItem(e||"theme")){if(localStorage.getItem(e||"theme")){document.documentElement.setAttribute("data-theme",t);var a=document.querySelector("select[data-choose-theme] [value='"+t.toString()+"']");a&&[...document.querySelectorAll("select[data-choose-theme] [value='"+t.toString()+"']")].forEach(o=>{o.selected=!0})}})(),c&&[...document.querySelectorAll("select[data-choose-theme]")].forEach(t=>{t.addEventListener("change",function(){document.documentElement.setAttribute("data-theme",this.value),localStorage.setItem(e||"theme",document.documentElement.getAttribute("data-theme")),[...document.querySelectorAll("select[data-choose-theme] [value='"+localStorage.getItem(e||"theme")+"']")].forEach(a=>{a.selected=!0})})})}function s(c=!0){c===!0?document.addEventListener("DOMContentLoaded",function(e){r(),u(),m()}):(r(),u(),m())}n.exports={themeChange:s}})(l)),l.exports}var g=h();g.themeChange();</script><title>Corestu&#39;s Blog - Keep it real</title><meta name="description"><meta name="author" content="摸鱼大王."><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"><meta name="generator" content="Astro v5.13.7"><link rel="icon" type="image/png" href="/favicon.ico"><link rel="apple-touch-icon-precomposed" href="/favicon.ico"><link href="/fonts/DingTalkJinBuTi/font.css" rel="stylesheet"><script type="module" src="/js/custom-hero.js"></script><link rel="stylesheet" href="/_astro/_page_.CTSWAbQQ.css"></head><div id="custom-header-container"></div>  <div class="bg-base-300/60 bg-[url('/images/bg-w.svg')] bg-repeat bg-fixed min-h-screen"> <header id="navbar" data-hide-navbar-on-scroll="1" class="navbar fixed top-0 left-0 right-0 z-30 h-14 flex justify-between items-center px-4 sm:px-6 lg:px-12 transition-all duration-500 ease-out" data-bg="transparent"> <div class="flex items-center space-x-4 transition-colors duration-500 text-white dark:text-white" id="navbar-left"> <div class="drawer lg:hidden me-4 w-auto"> <input id="my-drawer" type="checkbox" class="drawer-toggle"> <div class="drawer-content"> <label for="my-drawer" class="btn btn-ghost btn-square drawer-button"> <svg width="1em" height="1em" class="size-5" data-icon="menu-line">   <symbol id="ai:local:menu-line" viewBox="0 0 24 24"><path fill="currentColor" d="M3 4h18v2H3zm0 7h18v2H3zm0 7h18v2H3z"/></symbol><use href="#ai:local:menu-line"></use>  </svg> </label> </div> <div class="drawer-side"> <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label> <div class="menu bg-base-100 text-base-content min-h-full w-4/5 p-4"> <div class="mb-4 rounded-box overflow-hidden bg-cover bg-center object-cover" style="height:10rem;background-image:url(/images/bg.jpg)"></div> <div class="mb-4 p-4 rounded-box flex items-center"> <img src="/images/avatar.jpg" alt="头像" class="size-12"> <div class="ms-4"> <h1 class="text-lg font-bold font-serif">摸鱼大王.</h1> <p class="mt-1 line-clamp-2">美好的事即将发生.</p> </div> </div> <ul> <li> <a href="/" class="menu-link">首页</a> </li><li> <details open> <summary>JAVA笔记</summary> <ul> <li> <a href="/category/java_2" class="menu-link">JAVA进阶</a> </li> </ul> </details> </li><li> <a href="/category/default" class="menu-link">其他</a> </li> </ul> </div> </div> </div> <a class="block" href="/"> <div> <span class="sr-only">首页</span> <img class="h-10 w-auto" src="/images/Corestu.svg" alt="logo"> </div> </a> <div class="hidden lg:flex ms-10"> <nav class="hidden md:block h-14"> <div class="flex items-center gap-6 text-sm leading-14"> <a href="/" class="hover:text-blue-500"> 首页 </a><div class="group/one"> <div class="relative"> <button class="flex items-center gap-x-1"> <span>JAVA笔记</span> <svg width="1em" height="1em" class="size-4 flex-none transition-all group-hover/one:rotate-180" data-icon="arrow-down-s-line">   <symbol id="ai:local:arrow-down-s-line" viewBox="0 0 24 24"><path fill="currentColor" d="m12 13.171 4.95-4.95 1.414 1.415L12 16 5.636 9.636 7.05 8.222z"/></symbol><use href="#ai:local:arrow-down-s-line"></use>  </svg> </button> <div class="pt-1 absolute -left-2 opacity-0 invisible scale-90 transition duration-200 origin-top-left group-hover/one:opacity-100 group-hover/one:visible group-hover/one:scale-100"> <div data-nav-item class="bg-base-100 border-base-300 border min-w-40 shadow-lg rounded-box leading-normal"> <a href="/category/java_2" class="group/text text-black dark:text-white transition 
+                                        hover:bg-gray-100 dark:hover:bg-gray-700
+                                        flex items-center gap-2 w-full px-4 py-2.5 text-left 
+                                        first-of-type:rounded-t-box last-of-type:rounded-b-box"> <span class="transition group-hover/text:translate-x-2"> JAVA进阶 </span> </a> </div> </div> </div> </div><a href="/category/default" class="hover:text-blue-500"> 其他 </a> </div> </nav> </div> </div> <div class="flex items-center gap-x-2 transition-colors duration-500 text-white dark:text-white" id="navbar-right"> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var l=(n,t)=>{let i=async()=>{await(await n())()},e=typeof t.value=="object"?t.value:void 0,s={timeout:e==null?void 0:e.timeout};"requestIdleCallback"in window?window.requestIdleCallback(i,s):setTimeout(i,s.timeout||200)};(self.Astro||(self.Astro={})).idle=l;window.dispatchEvent(new Event("astro:idle"));})();</script><script>(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><script>window._$HY||(e=>{let t=e=>e&&e.hasAttribute&&(e.hasAttribute("data-hk")?e:t(e.host&&e.host.nodeType?e.host:e.parentNode));["click", "input"].forEach((o=>document.addEventListener(o,(o=>{if(!e.events)return;let s=t(o.composedPath&&o.composedPath()[0]||o.target);s&&!e.completed.has(s)&&e.events.push([s,o])}))))})(_$HY={events:[],completed:new WeakSet,r:{},fe(){}});</script><!--xs--><astro-island uid="2jBEmY" data-solid-render-id="s1" component-url="/_astro/Search.ycN7S65y.js" component-export="default" renderer-url="/_astro/client.BfP1zeiY.js" props="{}" ssr client="idle" opts="{&quot;name&quot;:&quot;Search&quot;,&quot;value&quot;:true}" await-children><button data-hk=s10000 class="btn btn-square btn-ghost"><svg class="size-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg></button><!--astro:end--></astro-island> <div class="dropdown dropdown-end"> <div tabindex="0" role="button" class="btn btn-ghost btn-square"> <svg width="1em" height="1em" class="size-5" data-icon="brush-ai-line">   <symbol id="ai:local:brush-ai-line" viewBox="0 0 24 24"><path fill="currentColor" d="m4.713 7.128-.246.566a.506.506 0 0 1-.934 0l-.246-.566a4.36 4.36 0 0 0-2.22-2.25l-.759-.339a.53.53 0 0 1 0-.963l.717-.319A4.37 4.37 0 0 0 3.276.931L3.53.32a.506.506 0 0 1 .942 0l.253.61a4.37 4.37 0 0 0 2.25 2.327l.718.32a.53.53 0 0 1 0 .962l-.76.338a4.36 4.36 0 0 0-2.219 2.251m10.601 2.405.143.142a5.5 5.5 0 0 1 1.356 5.245 5.505 5.505 0 0 1-5.311 4.078c-2.036 0-4.714-.625-6.973-1.514 1.205-1.414 1.645-2.809 1.8-4.679.037-.451.06-.63.103-.79.793-2.962 3.585-4.61 6.492-3.831.93.25 1.742.724 2.39 1.349m2.914-7.162-4.94 3.842c-3.946-.974-7.73 1.333-8.788 5.284-.102.38-.134.765-.167 1.169-.115 1.394-.247 3.005-3.333 5.33 2.5 1.5 7 3.002 10.502 3.002a7.505 7.505 0 0 0 7.283-9.291l3.84-4.938a1 1 0 0 0-.082-1.321L19.55 2.454a1 1 0 0 0-1.321-.083m-1.333 5.914a8 8 0 0 0-.194-.194l-1.124-1.124 3.182-2.475 1.746 1.746L18.03 9.42z"/></symbol><use href="#ai:local:brush-ai-line"></use>  </svg> </div> <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-1 p-2 shadow-sm space-y-2"> <li> <button class="btn flex items-center gap-x-1" data-set-theme="light"> <div data-theme="light" class="bg-base-100 grid shrink-0 grid-cols-2 gap-0.5 rounded-box p-1 shadow-sm"> <div class="bg-base-content size-1.5 rounded-full"></div> <div class="bg-primary size-1.5 rounded-full"></div> <div class="bg-secondary size-1.5 rounded-full"></div> <div class="bg-accent size-1.5 rounded-full"></div> </div> <div class="w-30 truncate">浅色模式</div> </button> </li><li> <button class="btn flex items-center gap-x-1" data-set-theme="dark"> <div data-theme="dark" class="bg-base-100 grid shrink-0 grid-cols-2 gap-0.5 rounded-box p-1 shadow-sm"> <div class="bg-base-content size-1.5 rounded-full"></div> <div class="bg-primary size-1.5 rounded-full"></div> <div class="bg-secondary size-1.5 rounded-full"></div> <div class="bg-accent size-1.5 rounded-full"></div> </div> <div class="w-30 truncate">暗黑模式</div> </button> </li> </ul> </div> </div> </header> <script>
+(function () {
+  const header = document.getElementById("navbar");
+  const leftItems = document.getElementById("navbar-left");
+  const rightItems = document.getElementById("navbar-right");
+  const mobileSidebarToggle = document.getElementById("my-drawer"); // ✅ 侧边栏开关
+
+  if (!header) return;
+
+  let lastScrollY = window.scrollY;
+
+  function isDarkMode() {
+    return document.documentElement.getAttribute("data-theme") === "dark";
+  }
+
+  function updateHeaderState() {
+    const currentScrollY = window.scrollY;
+
+    // 背景色逻辑
+    if (currentScrollY > 20) {
+      header.style.backgroundColor = isDarkMode()
+        ? "rgba(0, 0, 0, 0.6)"
+        : "rgba(255, 255, 255, 0.8)";
+      header.style.backdropFilter = "saturate(180%) blur(10px)";
+      header.dataset.bg = "semi";
+
+      if (isDarkMode()) {
+        leftItems.classList.remove("text-black");
+        leftItems.classList.add("text-white");
+        rightItems.classList.remove("text-black");
+        rightItems.classList.add("text-white");
+      } else {
+        leftItems.classList.remove("text-white");
+        leftItems.classList.add("text-black");
+        rightItems.classList.remove("text-white");
+        rightItems.classList.add("text-black");
+      }
+    } else {
+      header.style.backgroundColor = "transparent";
+      header.style.backdropFilter = "none";
+      header.dataset.bg = "transparent";
+      leftItems.classList.remove("text-black");
+      leftItems.classList.add("text-white");
+      rightItems.classList.remove("text-black");
+      rightItems.classList.add("text-white");
+    }
+
+    // 上滑/下滑显隐处理（侧边栏打开时固定顶栏）
+    if (header.dataset.hideNavbarOnScroll === "1") {
+      if (mobileSidebarToggle?.checked) {
+        header.style.transform = "translateY(0)"; // 侧边栏打开固定
+      } else {
+        if (currentScrollY > lastScrollY) {
+          header.style.transform = "translateY(-100%)";
+        } else {
+          header.style.transform = "translateY(0)";
+        }
+      }
+    }
+
+    lastScrollY = currentScrollY;
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener("scroll", updateHeaderState);
+    mobileSidebarToggle?.addEventListener("change", updateHeaderState); // ✅ 监听开关变化
+    updateHeaderState();
+
+    // 监听主题变化
+    const observer = new MutationObserver(updateHeaderState);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  });
+})();
+</script> <div data-hero-box style="height:30rem;background-image:url(/images/thumbnails/thumb-1.jpg)" class="hero bg-gray-300 mb-4 flex bg-center relative text-2xl leading-8 flex-col justify-center items-center object-cover bg-cover"><div class="max-w-screen-md z-10 text-center mt-10 px-10 py-6 text-white"><div class="font-serif sm:text-4xl text-2xl">页面不存在</div><div class="mt-3 text-sm sm:mt-6 sm:text-base"><span>点击站点标题去首页看看吧！</span></div></div></div> <main id="pjax-container" class="transition-pjax-fade pb-12 sm:pt-8 pt-4 px-2 sm:px-0">  <h1>404 - Page Not Found</h1>  </main> <div class="footer-wave"> <svg class="editorial" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none"> <defs> <path id="core-wave" d="M-160 44c30 0
+  58-18 88-18s
+  58 18 88 18
+  58-18 88-18
+  58 18 88 18
+  v44h-352z"></path> </defs> <g class="parallax"> <use id="wave-layer1" xlink:href="#core-wave" x="50" y="0" fill="var(--wave-1)"></use> <use id="wave-layer2" xlink:href="#core-wave" x="50" y="3" fill="var(--wave-2)"></use> <use id="wave-layer3" xlink:href="#core-wave" x="50" y="6" fill="var(--wave-3)"></use> </g> </svg> </div> <footer id="footer" class="relative bg-base-100 text-gray-600 px-4 py-6 sm:py-8"> <!-- 友情链接 --> <div class="text-center text-gray-500 text-[0.65rem] sm:text-xs mb-2 leading-tight">
+友情链接：
+<a href="https://zwy.life/" class="text-blue-600 hover:underline" target="_blank">
+赵阿卷
+</a> </div> <!-- 备案信息 --> <div class="flex flex-wrap justify-center items-center gap-2 sm:gap-4 text-xs sm:text-sm mb-2 leading-tight"> <div class="flex items-center gap-1"> <svg width="1em" height="1em" class="text-gray-500" data-icon="ICP">   <symbol id="ai:local:ICP" viewBox="0 0 1024 1024"><path fill="#ED4201" d="M90.293 381.12c7.574 4.48 13.974 10.773 21.12 16.107 10.134 7.573 20.374 14.933 30.294 22.293 15.253-33.6 29.76-65.707 45.013-99.093-23.573-4.16-47.68-8.747-72-12.267-3.2-.427-8.747 3.947-10.56 7.467-7.36 14.186-13.653 28.8-20.267 43.306-4.16 9.174-3.306 16.427 6.4 22.187m124.587-104c28.16-24.32 55.147-47.573 83.093-71.787-20.053-13.866-40.32-28.266-61.226-41.813-2.774-1.813-10.027-.533-13.014 1.92-13.973 11.413-27.52 23.573-40.64 36.053-2.24 2.134-3.413 7.787-2.133 10.454 10.88 21.76 22.4 43.2 33.92 65.173m133.013-95.893c30.827-8.96 61.654-18.027 92.587-26.774 7.893-2.24 6.827-5.866 3.627-11.306-10.667-18.24-20.587-36.907-32-54.614-2.347-3.733-10.134-7.04-14.4-6.08-16.64 3.734-32.96 8.96-49.174 14.294-2.986.96-6.72 5.44-6.826 8.32-.534 24.96-.32 50.026-.32 75.093 5.013.853 5.866 1.28 6.506 1.067M131.04 473.067c-3.093-.64-4.373-1.28-5.44-.96-20.8 5.333-41.6 10.56-62.187 16.746-3.093.96-6.506 7.04-6.613 10.774-.32 18.453 0 36.906 1.28 55.253.32 3.84 5.013 9.6 8.64 10.56 21.013 5.547 42.453 9.92 64.213 14.827v-107.2zm479.893-320.96c-1.066-14.72-1.386-29.547-3.84-43.947-5.333-32 2.667-27.2-30.826-32.853-3.947-.64-7.894-1.387-11.84-2.027-28.16-4.267-28.374-4.267-39.894 21.333-7.786 17.28-14.613 34.88-21.76 51.947 36.587 5.227 71.68 10.133 108.267 15.36-.107-2.987.107-6.507-.107-9.813M777.227 172.8c.853-2.56-2.027-7.787-4.694-9.707-14.293-10.453-28.8-20.586-43.733-29.866-3.2-1.92-10.24-1.92-12.907.32-19.2 16.426-37.653 33.6-56.106 50.24 31.146 21.226 60.693 41.493 91.306 62.4 8.854-24.214 17.92-48.64 26.134-73.387M523.68 886.187c8.64 18.56 17.28 37.866 26.88 56.533 1.6 3.093 8 5.973 11.627 5.44 19.093-3.093 38.186-6.72 56.96-11.52 3.84-.96 8.32-7.467 8.853-11.947 1.707-13.44 1.813-27.093 2.347-40.746.213-6.934 0-13.867 0-20.48-36.48 7.786-70.72 15.04-106.667 22.72m261.653-68.16c-5.973-14.4-11.946-28.8-17.813-42.987-30.507 23.36-59.413 45.547-89.067 68.267C695.947 857.92 712.16 872 729.227 885.12c2.773 2.133 10.24 1.387 13.76-.853 11.733-7.254 22.826-15.574 33.813-23.894 19.307-14.4 19.2-14.506 10.24-36.586-.747-1.707-.96-3.84-1.707-5.76m-222.08-53.014c-60.693-1.92-117.226-19.093-165.226-56.533-76.48-59.733-104.427-141.44-90.774-235.2 11.84-81.813 60.8-141.12 133.974-176.96 58.666-28.8 121.813-34.347 184.213-10.56 48.64 18.56 75.2 56.64 55.893 113.6-12.266 36.053-37.973 61.333-69.013 81.493-36.48 23.787-75.52 40-120.213 36.907-43.52-3.093-63.36-35.307-46.72-75.733 3.2-7.787 7.893-14.934 11.946-22.294-22.506 20.8-40.853 44.8-46.933 76.054-5.013 26.346 9.92 53.333 34.347 62.613 23.36 8.96 47.573 12.267 72.32 9.28 80.213-9.707 149.546-42.667 207.573-98.987 64.107-62.186 62.827-162.346-4.48-218.346-58.667-48.747-126.72-76.374-203.52-78.294-86.827-2.24-166.613 19.734-235.413 74.88C212.96 301.867 169.76 372.587 154.72 458.987c-10.56 60.586-4.907 120.32 16.96 178.453 27.733 73.707 72.533 133.333 139.627 175.253 93.013 58.134 192.746 69.227 296.746 38.72 92.8-27.2 157.12-89.92 203.627-172.906 1.493-2.667 1.92-5.974 2.88-8.96-14.08 9.706-25.493 21.226-38.293 30.72-63.254 46.72-134.827 67.2-213.014 64.746m-100.48 118.08c-15.466-1.813-30.933-4.266-46.08-7.68-16.213-3.626-32.106-8.746-50.453-13.76 0 22.827-.213 43.84.32 64.854.107 2.773 3.733 7.253 6.613 8 19.307 5.12 38.72 9.706 58.24 13.546 3.2.64 9.067-1.706 10.667-4.48 9.6-16.106 18.24-32.64 27.2-49.066 3.84-7.147 2.347-10.347-6.507-11.414m-263.36-53.653c-1.173 2.667.747 8.427 3.094 10.453 15.253 13.014 31.04 25.6 46.933 37.867 2.453 1.92 7.787 3.2 9.707 1.813 18.453-13.226 36.373-26.986 54.4-40.533-29.334-23.787-56.96-46.187-86.614-70.187-9.28 20.16-18.773 40.214-27.52 60.587M93.173 675.52c-2.24 2.027-2.986 8.533-1.6 11.52 8.107 17.173 16.854 34.133 26.134 50.773 1.706 3.094 7.04 6.72 10.026 6.187 22.08-3.947 44.054-8.853 65.174-13.227l-49.174-98.026c-16.96 14.186-34.026 28.16-50.56 42.773"/><path fill="#035DB6" d="M975.947 338.347c-15.467-35.947-46.614-52.054-80.427-62.614-21.227-6.613-43.307-9.493-65.6-10.133a428 428 0 0 0-33.067.32c-9.813.427-19.84 1.493-29.76 3.947 5.334 1.28 42.987 11.733 59.414 20.266 1.173.64 2.24 1.174 3.413 1.814 21.653 12.266 34.987 30.826 35.84 57.28 1.067 33.92-13.973 61.76-33.813 87.466-.64.854-1.387 1.707-2.027 2.454-19.733 24.96-43.2 45.973-68.907 64.746-49.386 35.947-103.68 61.76-162.346 77.227-44.48 11.733-89.814 15.147-135.574 5.333-48.32-10.346-81.6-52.693-61.973-104.533 3.307-8.747 6.613-17.6 9.92-26.347-16.32 20.907-28.587 42.88-31.573 69.867-3.84 35.733 11.093 62.507 38.186 82.453 33.814 24.96 74.347 31.147 114.88 32.534 26.24.853 52.8-3.627 79.04-6.294 45.654-4.693 89.067-18.133 131.2-35.306 30.08-12.267 59.414-26.134 87.147-42.667 17.707-10.56 34.667-22.187 50.88-35.307 36.267-29.546 70.72-61.013 89.707-105.173 10.773-24.96 17.066-50.347 5.44-77.333"/></symbol><use href="#ai:local:ICP"></use>  </svg> <a href="https://beian.miit.gov.cn/" target="_blank" class="hover:text-blue-600"> 湘ICP备2024057602号-4 </a> </div>  </div> <!-- 版权 & 平台信息 --> <p class="text-center text-xs sm:text-sm mb-2 leading-tight">
+© 2025&nbsp;
+<a href="https://blog.corestu.com" class="text-blue-600 hover:underline">Corestu&#39;s Blog</a>
+&nbsp;· 采用&nbsp;
+<a href="/" class="text-blue-600 hover:underline">Soak</a>
+&nbsp;独立部署构建
+</p> <!-- 免责 & 反诈宣传 --> <div class="text-center text-gray-500 text-[0.65rem] sm:text-xs max-w-screen-sm mx-auto leading-tight"> <p class="mb-0">
+免责声明：本站内容仅供学习和参考，若涉及第三方版权请联系删除</p><p>本网站不承担因使用本站内容引发的任何法律责任。
+</p> <p class="mb-1"> <a href="https://www.12377.cn/" class="text-blue-600 hover:underline" target="_blank">
+互联网违法和不良信息举报中心
+</a> / 为防范电信网络诈骗，如接到 <span class="font-semibold">96110</span> 来电，请立即接听
+</p> </div> </footer> </div> <!-- 调整 bottom-6 为 bottom-20（或自定义数值） --><div id="back-to-top" class="fixed right-6 bottom-20 z-50 opacity-0 invisible transition-all duration-300"> <div role="button" class="flex justify-center items-center w-10 h-10 rounded-full bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:scale-105 cursor-pointer" onclick="scrollToTop()"> <svg width="1em" height="1em" class="size-5 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors" data-icon="circle-arrow-up-s-line">   <symbol id="ai:local:circle-arrow-up-s-line" viewBox="0 0 1024 1024"><path fill="currentColor" d="M515.887 938.659a422.796 422.796 0 1 1 422.795-422.772 423.24 423.24 0 0 1-422.795 422.772m0-775.75a352.977 352.977 0 1 0 352.977 352.978 353.373 353.373 0 0 0-352.977-352.978"/><path fill="currentColor" d="M671.046 550.796a34.9 34.9 0 0 1-24.693-10.24L515.887 410.089l-130.49 130.467a34.91 34.91 0 0 1-49.362-49.362l155.16-155.16a34.91 34.91 0 0 1 49.36 0l155.16 155.16a34.91 34.91 0 0 1-24.67 59.602"/><path fill="currentColor" d="M515.887 705.932a34.91 34.91 0 0 1-34.91-34.91V360.728a34.91 34.91 0 0 1 69.819 0v310.296a34.91 34.91 0 0 1-34.91 34.909"/></symbol><use href="#ai:local:circle-arrow-up-s-line"></use>  </svg> </div> </div> <script>
+    // 返回顶部功能
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+
+    // 优化滚动检测 + 按钮显示逻辑
+    document.addEventListener("DOMContentLoaded", () => {
+        const backToTopBtn = document.getElementById("back-to-top");
+        let lastScrollY = 0;
+
+        window.addEventListener("scroll", () => {
+            const currentScrollY = window.scrollY;
+            
+            // 只有向下滚动时检测（避免向上滚动误触发）
+            if (currentScrollY > lastScrollY && currentScrollY > 200) {
+                backToTopBtn.classList.remove("opacity-0", "invisible");
+                backToTopBtn.classList.add("opacity-100", "visible");
+            } 
+            // 滚动到顶部附近时隐藏
+            else if (currentScrollY <= 50) {
+                backToTopBtn.classList.add("opacity-0", "invisible");
+                backToTopBtn.classList.remove("opacity-100", "visible");
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+    });
+</script> <script type="module">
+    import Pjax from "/libs/pjax.esm.min.js";
+
+    window.pjax = new Pjax({
+        selectors: ["title", "meta", "main", "[data-hero-box]"],
+    });
+
+    document.addEventListener("pjax:complete", () => {
+        document.getElementById("my-drawer").checked = false;
+        topbar.hide();
+    });
+    document.addEventListener("pjax:send", () => {
+        topbar.show();
+    });
+</script> <script>(function(){const scriptUrl = "/pagefind/pagefind.js";
+
+    (async function findInit() {
+        const pageFind = await import(scriptUrl);
+        await pageFind.options({
+            excerptLength: 20,
+        });
+        pageFind.init();
+        window.pagefind = pageFind;
+        pageFind.search(""); // speed up the first search
+    })();
+})();</script> <script src="/libs/view-image.min.js"></script> <script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.ViewImage && ViewImage.init('article[data-article] img');
+    })
+</script> <script>(()=>{var a=(s,i,o)=>{let r=async()=>{await(await s())()},t=typeof i.value=="object"?i.value:void 0,c={rootMargin:t==null?void 0:t.rootMargin},n=new IntersectionObserver(e=>{for(let l of e)if(l.isIntersecting){n.disconnect(),r();break}},c);for(let e of o.children)n.observe(e)};(self.Astro||(self.Astro={})).visible=a;window.dispatchEvent(new Event("astro:visible"));})();</script><astro-island uid="Z1XFupG" data-solid-render-id="s0" component-url="/_astro/_astro-entry_solid-toast.DBLPXVwE.js" component-export="Toaster" renderer-url="/_astro/client.BfP1zeiY.js" props="{&quot;position&quot;:[0,&quot;top-center&quot;]}" ssr client="visible" opts="{&quot;name&quot;:&quot;Toaster&quot;,&quot;value&quot;:true}" await-children><div data-hk=s00000 style="position:fixed;z-index:9999;top:16px;bottom:16px;left:16px;right:16px;pointer-events:none"><style>.sldt-active{z-index:9999;}.sldt-active>*{pointer-events:auto;}</style><!--$--><!--/--></div><!--astro:end--></astro-island>  <script type="module" src="/_astro/DefaultLayout.astro_astro_type_script_index_0_lang.D2ciJBLE.js"></script>  </html>
