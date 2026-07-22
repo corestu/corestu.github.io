@@ -2,8 +2,6 @@
 
 基于 [Astro Homepage Template](https://github.com/corestu/astro-homepage) 构建的个人主页，部署在 GitHub Pages。
 
-**作者：摸鱼大王** | **博客：[摸鱼小窝](https://blog.aistu.cn)**
-
 ## 在线访问
 
 **https://corestu.github.io**
@@ -46,13 +44,10 @@ npm run dev
 ## 相关链接
 
 - **模板项目**：[astro-homepage](https://github.com/corestu/astro-homepage) - 本项目使用的 Astro 个人主页模板
-- **作者博客**：[摸鱼小窝](https://blog.aistu.cn) - 技术折腾与生活记录
 - **GitHub Pages 文档**：[docs.github.com/pages](https://docs.github.com/en/pages)
 
-## 部署
+## 作者
 
-项目通过 GitHub Actions 自动部署到 GitHub Pages。每次推送到 main 分支时自动构建和部署。
+**摸鱼大王** | [摸鱼小窝](https://blog.aistu.cn) | [GitHub](https://github.com/corestu)
 
-## 许可证
-
-MIT License © 摸鱼大王
+MIT License
