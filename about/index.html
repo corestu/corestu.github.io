@@ -1,155 +1,30 @@
 <!DOCTYPE html><html lang="zh-CN"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="摸鱼小屋是一个没有 KPI 的个人自留地。在这里，记录琐碎日常、存放随性文字与笔记。不为流量，不追热点，只愿长久地写下去。欢迎偶然路过，但更忠于自己。"><link rel="icon" href="/favicon.ico"><script>
       (() => {
         const storageKey = "site-theme";
-        const dayStartHour = 8;
-        const nightStartHour = 21;
-        let themeTimer = 0;
-
-        const isTheme = (theme) => theme === "light" || theme === "dark";
-
-        const resolveAutoTheme = (date = new Date()) => {
-          const hour = date.getHours();
-          return hour >= dayStartHour && hour < nightStartHour ? "light" : "dark";
-        };
-
-        const getNextThemeBoundary = (date = new Date()) => {
-          const next = new Date(date);
-          const hour = date.getHours();
-
-          if (hour < dayStartHour) {
-            next.setHours(dayStartHour, 0, 0, 0);
-            return next;
-          }
-
-          if (hour < nightStartHour) {
-            next.setHours(nightStartHour, 0, 0, 0);
-            return next;
-          }
-
-          next.setDate(next.getDate() + 1);
-          next.setHours(dayStartHour, 0, 0, 0);
-          return next;
-        };
-
-        const readManualTheme = () => {
-          const rawValue = localStorage.getItem(storageKey);
-          if (!rawValue) return null;
-
-          if (isTheme(rawValue)) {
-            localStorage.removeItem(storageKey);
-            return null;
-          }
-
-          try {
-            const state = JSON.parse(rawValue);
-            if (
-              state?.mode !== "manual" ||
-              !isTheme(state.theme) ||
-              typeof state.expiresAt !== "number"
-            ) {
-              localStorage.removeItem(storageKey);
-              return null;
-            }
-
-            if (Date.now() >= state.expiresAt) {
-              localStorage.removeItem(storageKey);
-              return null;
-            }
-
-            return state.theme;
-          } catch {
-            localStorage.removeItem(storageKey);
-            return null;
-          }
-        };
-
         const resolveTheme = () => {
-          return readManualTheme() || resolveAutoTheme();
+          const storedTheme = localStorage.getItem(storageKey);
+          const hour = new Date().getHours();
+          return storedTheme || (hour >= 8 && hour < 21 ? "light" : "dark");
         };
 
         const applyTheme = (theme, root = document.documentElement) => {
           root.dataset.theme = theme;
         };
 
-        const runThemeTransition = (callback) => {
-          if (typeof document.startViewTransition === "function") {
-            document.startViewTransition(callback);
-            return;
-          }
-
-          callback();
-        };
-
-        const applyResolvedTheme = (options = {}) => {
-          const nextTheme = resolveTheme();
-          const updateTheme = () => applyTheme(nextTheme);
-
-          if (options.transition) {
-            runThemeTransition(updateTheme);
-            return nextTheme;
-          }
-
-          updateTheme();
-          return nextTheme;
-        };
-
-        const persistManualTheme = (theme) => {
-          localStorage.setItem(
-            storageKey,
-            JSON.stringify({
-              mode: "manual",
-              theme,
-              expiresAt: getNextThemeBoundary().getTime()
-            })
-          );
-        };
-
-        const toggleTheme = () => {
-          const currentTheme = document.documentElement.dataset.theme || resolveTheme();
-          const nextTheme = currentTheme === "dark" ? "light" : "dark";
-
-          persistManualTheme(nextTheme);
-          runThemeTransition(() => {
-            applyTheme(nextTheme);
-          });
-          scheduleThemeSync();
-        };
-
-        const scheduleThemeSync = () => {
-          window.clearTimeout(themeTimer);
-
-          const delay = Math.max(0, getNextThemeBoundary().getTime() - Date.now()) + 80;
-          themeTimer = window.setTimeout(() => {
-            applyResolvedTheme({ transition: document.visibilityState === "visible" });
-            scheduleThemeSync();
-          }, Math.min(delay, 2147483647));
-        };
-
         window.__resolveSiteTheme = resolveTheme;
         window.__applySiteTheme = applyTheme;
-        window.__toggleSiteTheme = toggleTheme;
-        window.__scheduleSiteTheme = scheduleThemeSync;
 
-        applyResolvedTheme();
-        scheduleThemeSync();
+        applyTheme(resolveTheme());
 
         document.addEventListener("astro:before-swap", (event) => {
           applyTheme(resolveTheme(), event.newDocument.documentElement);
         });
 
         document.addEventListener("astro:after-swap", () => {
-          applyResolvedTheme();
-          scheduleThemeSync();
-        });
-
-        document.addEventListener("visibilitychange", () => {
-          if (!document.hidden) {
-            applyResolvedTheme();
-            scheduleThemeSync();
-          }
+          applyTheme(resolveTheme());
         });
       })();
-    </script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CAqDO0tx.js"></script><title>关于我 - 摸鱼大王的个人主页</title><link rel="stylesheet" href="/_astro/SiteLayout.B-V5oSMD.css"></head> <body>  <header class="site-header"> <div class="header-inner"> <a class="site-logo" href="/" aria-label="返回首页"> <img class="logo-image" src="/Corestu.svg" alt="MYDW'S HOME"> </a> <nav class="site-nav" aria-label="主导航"> <a href="/#home" class="nav-link"> 首页 </a><a href="/about" class="nav-link is-active"> 关于我 </a><a href="/#posts" class="nav-link"> 文章 </a><a href="/#projects" class="nav-link"> 作品 </a> </nav> <div class="site-tools" aria-label="页面工具"> <button class="tool-button tool-button-theme" type="button" aria-label="切换黑夜模式" data-theme-toggle> <span class="tool-icon tool-icon-theme" aria-hidden="true"></span> </button> <button class="tool-button tool-button-menu" type="button" aria-label="打开菜单"> <span class="tool-icon tool-icon-menu" aria-hidden="true"></span> </button> </div> </div> <div class="mobile-menu-backdrop" data-menu-close></div> <aside class="mobile-menu-drawer" aria-label="移动端菜单"> <div class="mobile-menu-handle" aria-hidden="true"></div> <div class="mobile-menu-profile"> <img class="mobile-menu-avatar" src="/avatar.jpg" alt="摸鱼大王头像"> <div class="mobile-menu-meta"> <p class="mobile-menu-name">摸鱼大王</p> <p class="mobile-menu-signature">永远相信美好的事情即将发生</p> </div> </div> <nav class="mobile-menu-nav" aria-label="移动端主导航"> <a href="/#home" class="mobile-menu-link" data-menu-link> 首页 </a><a href="/about" class="mobile-menu-link is-active" data-menu-link> 关于我 </a><a href="/#posts" class="mobile-menu-link" data-menu-link> 文章 </a><a href="/#projects" class="mobile-menu-link" data-menu-link> 作品 </a> </nav> </aside> </header> <script>
+    </script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CAqDO0tx.js"></script><title>关于我 - 摸鱼大王的个人主页 - 摸鱼小窝</title><link rel="stylesheet" href="/_astro/SiteLayout.DA1Dnztu.css"></head> <body>  <header class="site-header"> <div class="header-inner"> <a class="site-logo" href="/" aria-label="返回首页"> <img class="logo-image" src="/Corestu.svg" alt="MYDW'S HOME"> </a> <nav class="site-nav" aria-label="主导航"> <a href="/#home" class="nav-link"> 首页 </a><a href="/about" class="nav-link is-active"> 关于我 </a><a href="/#posts" class="nav-link"> 文章 </a><a href="/#projects" class="nav-link"> 作品 </a> </nav> <div class="site-tools" aria-label="页面工具"> <button class="tool-button tool-button-theme" type="button" aria-label="切换黑夜模式" data-theme-toggle> <span class="tool-icon tool-icon-theme" aria-hidden="true"></span> </button> <button class="tool-button tool-button-menu" type="button" aria-label="打开菜单"> <span class="tool-icon tool-icon-menu" aria-hidden="true"></span> </button> </div> </div> <div class="mobile-menu-backdrop" data-menu-close></div> <aside class="mobile-menu-drawer" aria-label="移动端菜单"> <div class="mobile-menu-handle" aria-hidden="true"></div> <div class="mobile-menu-profile"> <img class="mobile-menu-avatar" src="/avatar.jpg" alt="摸鱼大王头像"> <div class="mobile-menu-meta"> <p class="mobile-menu-name">摸鱼大王</p> <p class="mobile-menu-signature">永远相信美好的事情即将发生</p> </div> </div> <nav class="mobile-menu-nav" aria-label="移动端主导航"> <a href="/#home" class="mobile-menu-link" data-menu-link> 首页 </a><a href="/about" class="mobile-menu-link is-active" data-menu-link> 关于我 </a><a href="/#posts" class="mobile-menu-link" data-menu-link> 文章 </a><a href="/#projects" class="mobile-menu-link" data-menu-link> 作品 </a> </nav> </aside> </header> <script>
   (() => {
     if (window.__siteHeaderScrollBound) return;
     window.__siteHeaderScrollBound = true;
@@ -162,7 +37,28 @@
     document.addEventListener("astro:page-load", syncHeaderState);
     syncHeaderState();
 
+    const storageKey = "site-theme";
     let isMenuOpen = false;
+
+    const applyTheme = (theme) => {
+      if (typeof window.__applySiteTheme === "function") {
+        window.__applySiteTheme(theme);
+        return;
+      }
+
+      document.documentElement.dataset.theme = theme;
+    };
+
+    const runThemeTransition = (callback) => {
+      if (typeof document.startViewTransition === "function") {
+        document.startViewTransition(() => {
+          callback();
+        });
+        return;
+      }
+
+      callback();
+    };
 
     const syncMenuState = (open) => {
       isMenuOpen = open;
@@ -200,13 +96,11 @@
         if (button.dataset.themeBound === "true") return;
         button.dataset.themeBound = "true";
         button.addEventListener("click", () => {
-          if (typeof window.__toggleSiteTheme === "function") {
-            window.__toggleSiteTheme();
-            return;
-          }
-
-          document.documentElement.dataset.theme =
-            document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+          const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+          runThemeTransition(() => {
+            localStorage.setItem(storageKey, nextTheme);
+            applyTheme(nextTheme);
+          });
         });
       });
     };
@@ -227,19 +121,11 @@
   })();
 </script>  <main class="page-main"> <section class="article-page anchor-section" id="about-page" aria-label="关于我"> <article class="article-content"> <h2 id="关于我">关于我</h2>
 <ul>
-<li>网名：摸鱼大王，不卷不躁，在生活的缝隙里，打捞属于自己的自在时光。</li>
+<li>网名：”摸鱼大王.“，不卷不躁，在生活的缝隙里，打捞属于自己的自在时光。</li>
 <li>介绍：05 年，在校大学生，喜欢折腾各种和技术、设计、网站有关的东西。</li>
-<li>技术方向：以 Java 和前端为主，对 WordPress 有较深的理解，熟悉主题定制开发、功能扩展与二次开发优化。目前正在深度定制 <a href="https://blog.aistu.cn/">PIXPRO主题</a>。</li>
+<li>技术方向：以 Java 和前端为主，对 WordPress 有较深的理解，熟悉主题定制开发、功能扩展与二次开发优化。</li>
 <li>家乡：湖南 - 邵阳，一座安静的小城，谈不上热闹，但也自有它的节奏。</li>
 <li>日常状态：高强度网上冲浪，有消息基本都会回。</li>
-</ul>
-<h2 id="博客">博客</h2>
-<p><strong>摸鱼小窝</strong> - <a href="https://blog.aistu.cn">https://blog.aistu.cn</a></p>
-<p>记录技术折腾、日常随笔与一些缓慢生长的想法。</p>
-<h2 id="联系方式">联系方式</h2>
-<ul>
-<li>GitHub：<a href="https://github.com/corestu">corestu</a></li>
-<li>Email：<a href="mailto:me@imoyu.net">me@imoyu.net</a></li>
 </ul> </article> </section> </main>  <footer class="site-footer" aria-label="页脚"> <div class="footer-inner"> <div class="footer-brand"> <a class="site-logo footer-logo" href="/" aria-label="返回首页"> <img class="logo-image" src="/Corestu.svg" alt="MYDW'S HOME"> </a> <p class="footer-signature">永远相信美好的事情即将发生</p> </div> <p class="footer-copy">© 2026 摸鱼大王的个人主页. All rights reserved.</p> </div> </footer>  <script>
       (() => {
         if (window.__mouseGlowBound) return;
