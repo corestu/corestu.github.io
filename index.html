@@ -1,23 +1,164 @@
-<!DOCTYPE html><html lang="zh-CN" data-lang-key="site-lang" data-lang-default="en" data-lang-pending-ms="2500"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>摸鱼大王的小角落 - 摸鱼小窝</title><meta name="description" content="摸鱼大王的小角落，一页收拢我的写作、项目与联系方式。写点东西，做点东西，不求有人驻足，只愿自己能长久地坚持下去。"><meta name="keywords" content="摸鱼大王,摸鱼小窝,摸鱼,个人主页,个人博客,人工智能,AI"><link rel="canonical" href="https://aimoyu.dev/"><meta property="og:type" content="website"><meta property="og:site_name" content="摸鱼小窝"><meta property="og:title" content="摸鱼大王的小角落 - 摸鱼小窝"><meta property="og:description" content="摸鱼大王的小角落，一页收拢我的写作、项目与联系方式。写点东西，做点东西，不求有人驻足，只愿自己能长久地坚持下去。"><meta property="og:url" content="https://aimoyu.dev/"><meta property="og:locale" content="zh_CN"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="摸鱼大王的小角落 - 摸鱼小窝"><meta name="twitter:description" content="摸鱼大王的小角落，一页收拢我的写作、项目与联系方式。写点东西，做点东西，不求有人驻足，只愿自己能长久地坚持下去。"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"摸鱼小窝","alternateName":["摸鱼大王","摸鱼小窝","moyu.blog","Corestu"],"url":"https://aimoyu.dev/","description":"摸鱼大王的小角落，一页收拢我的写作、项目与联系方式。写点东西，做点东西，不求有人驻足，只愿自己能长久地坚持下去。","inLanguage":"zh-CN"}</script><meta name="theme-color" content="#ffffff"><link rel="icon" href="/assets/favicon.ico"><script>
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="摸鱼小窝是一个没有 KPI 的个人自留地。在这里，记录琐碎日常、存放随性文字与笔记。不为流量，不追热点，只愿长久地写下去。欢迎偶然路过，但更忠于自己。"><link rel="canonical" href="https://corestu.github.io/"><!-- Open Graph --><meta property="og:type" content="website"><meta property="og:url" content="https://corestu.github.io/"><meta property="og:title" content="摸鱼大王的个人主页 - 摸鱼小窝"><meta property="og:description" content="摸鱼小窝是一个没有 KPI 的个人自留地。在这里，记录琐碎日常、存放随性文字与笔记。不为流量，不追热点，只愿长久地写下去。欢迎偶然路过，但更忠于自己。"><meta property="og:image" content="https://corestu.github.io/avatar.jpg"><meta property="og:site_name" content="摸鱼大王的个人主页 - 摸鱼小窝"><meta property="og:locale" content="zh_CN"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://corestu.github.io/"><meta name="twitter:title" content="摸鱼大王的个人主页 - 摸鱼小窝"><meta name="twitter:description" content="摸鱼小窝是一个没有 KPI 的个人自留地。在这里，记录琐碎日常、存放随性文字与笔记。不为流量，不追热点，只愿长久地写下去。欢迎偶然路过，但更忠于自己。"><meta name="twitter:image" content="https://corestu.github.io/avatar.jpg"><link rel="icon" href="/favicon.ico"><!-- JSON-LD 结构化数据 --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"摸鱼大王","url":"https://corestu.github.io","image":"https://corestu.github.io/avatar.jpg","description":"大模型善后工程师、本科在读，人工智能专业。熟练各种大语言模型的调用以及请求审批，擅长 CSS、JavaScript、PHP、C、java、python 等单词的拼写","sameAs":["https://github.com/corestu","https://qm.qq.com/cgi-bin/qm/qr?k=1lLaOec7RlPtbWi6Mck8-ulW-l3aiOBi"]}</script><script>
       (() => {
-        const root = document.documentElement;
-        try {
-          const stored = localStorage.getItem(root.dataset.langKey);
-          if (stored && stored !== root.dataset.langDefault) root.dataset.langPending = stored;
-        } catch {}
-        const timeout = Number(root.dataset.langPendingMs) || 0;
-        if (timeout > 0) {
-          setTimeout(() => {
-            delete root.dataset.langPending;
-          }, timeout);
-        }
+        const storageKey = "site-theme";
+        const resolveTheme = () => {
+          const storedTheme = localStorage.getItem(storageKey);
+          const hour = new Date().getHours();
+          return storedTheme || (hour >= 8 && hour < 21 ? "light" : "dark");
+        };
+
+        const applyTheme = (theme, root = document.documentElement) => {
+          root.dataset.theme = theme;
+        };
+
+        window.__resolveSiteTheme = resolveTheme;
+        window.__applySiteTheme = applyTheme;
+
+        applyTheme(resolveTheme());
+
+        document.addEventListener("astro:before-swap", (event) => {
+          applyTheme(resolveTheme(), event.newDocument.documentElement);
+        });
+
+        document.addEventListener("astro:after-swap", () => {
+          applyTheme(resolveTheme());
+        });
       })();
-    </script><script type="application/json" id="site-i18n">{"en":{"hero":{"greetingBefore":"Hi everyone, I’m ","name":"Corestu","greetingAfter":". Welcome to my ","card":"personal space","greetingEnd":".","bio":"Artificial Intelligence undergraduate, LLM Aftermath Engineer. Proficient in every kind of large language model — at calling them, and at getting the usage request approved. Also proficient in CSS, JavaScript, PHP, C, Java, Python — or rather, at spelling them.","note":"To write, to create — seeking no audience, only the strength to carry on."},"latest":{"label":"Latest","feed":"https://moyu.blog/feed","limit":5,"emptyText":"Nothing new yet.","fallbackLabel":"RSS","fallbackText":"Moyu.Blog","fallbackHref":"https://moyu.blog"},"index":{"label":"Index","columns":[[{"label":"Writing","text":"Moyu.Blog","href":"https://moyu.blog"},{"label":"Projects","text":"GitHub","href":"https://github.com/corestu"},{"label":"Email","text":"me@imoyu.net","href":"mailto:me@imoyu.net"}],[{"label":"QQ","text":"2643373126"},{"label":"WeChat","text":"1214663"}]]},"footer":{"copyright":"© 2026 Corestu","signature":"Always believe that something wonderful is about to happen"}},"zh":{"hero":{"greetingBefore":"Hi，我是 ","name":"摸鱼大王","greetingAfter":"，欢迎来到我的 ","card":"小角落","greetingEnd":"。","bio":"人工智能专业本科在读，大模型善后工程师，精通各类大语言模型的调用与请求审批，熟练掌握 CSS、JavaScript、PHP、C、Java、Python 等单词的拼写。","note":"写点东西，做点东西，不求有人驻足，只愿自己能长久地坚持下去。"},"latest":{"label":"最新","feed":"https://moyu.blog/feed","limit":5,"emptyText":"还没有新内容。","fallbackLabel":"RSS","fallbackText":"摸鱼小窝","fallbackHref":"https://moyu.blog"},"index":{"label":"索引","columns":[[{"label":"写作","text":"摸鱼小窝","href":"https://moyu.blog"},{"label":"项目","text":"GitHub","href":"https://github.com/corestu"},{"label":"邮箱","text":"me@imoyu.net","href":"mailto:me@imoyu.net"}],[{"label":"QQ","text":"2643373126"},{"label":"微信","text":"1214663"}]]},"footer":{"copyright":"© 2026 摸鱼大王","signature":"永远相信美好的事情即将发生"}}}</script><script>
-      ['gesturestart', 'gesturechange', 'gestureend'].forEach((type) => {
-        document.addEventListener(type, (event) => event.preventDefault(), { passive: false });
-      });
-    </script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/assets/ClientRouter.astro_astro_type_script_index_0_lang.CDGfc0hd.js"></script><link rel="stylesheet" href="/assets/index.WTBly162.css"></head> <body>  <main class="main-content"> <div class="lang-switch" data-lang-switch role="group" aria-label="Language"> <button type="button" class="lang-btn" data-lang="en" aria-pressed="true"> en </button> <span class="lang-divider" aria-hidden="true">/</span><button type="button" class="lang-btn" data-lang="zh" aria-pressed="false"> zh </button>  </div> <script type="module">(()=>{const r=document.documentElement,p=()=>{const t=document.getElementById("site-i18n");if(!t)return null;try{return JSON.parse(t.textContent||"{}")}catch{return null}},c=(t,a)=>a.split(".").reduce((n,e)=>n==null?n:n[e],t),d=()=>r.dataset.langKey||"",l=()=>r.dataset.langDefault||"",y=()=>Array.from(document.querySelectorAll("[data-lang]")).map(t=>t.dataset.lang).filter(Boolean),i=()=>{try{const t=localStorage.getItem(d());if(t&&y().includes(t))return t}catch{}return l()},s=t=>{const a=p();if(!a)return;const n=a[t]||a[l()];n&&(document.querySelectorAll("[data-i18n]").forEach(e=>{const o=c(n,e.dataset.i18n);typeof o=="string"&&(e.textContent=o)}),document.querySelectorAll("[data-i18n-attr]").forEach(e=>{e.dataset.i18nAttr.split(";").forEach(o=>{const[g,f]=o.split(":");if(!g||!f)return;const m=c(n,f.trim());typeof m=="string"&&e.setAttribute(g.trim(),m)})}),document.querySelectorAll("[data-lang]").forEach(e=>{e.setAttribute("aria-pressed",String(e.dataset.lang===t))}),r.dataset.langActive=t,delete r.dataset.langPending)};window.__applySiteLang=()=>s(i());const u=()=>{s(i());const t=document.querySelector("[data-lang-switch]");!t||t.dataset.bound||(t.dataset.bound="true",t.addEventListener("click",a=>{const n=a.target.closest("[data-lang]");if(!n)return;const e=n.dataset.lang;if(!(!e||e===r.dataset.langActive)){try{localStorage.setItem(d(),e)}catch{}s(e)}}))};u(),window.__langSwitchBound||(window.__langSwitchBound=!0,document.addEventListener("astro:page-load",u))})();</script> <header> <div class="brand-line"> <span class="avatar-wrap"> <img src="/assets/avatar.jpg" class="avatar" alt="Corestu" width="50" height="50" data-i18n-attr="alt:hero.name"> <span class="status-dot" aria-hidden="true"></span> </span> <h1 class="site-title sr-only" data-i18n="hero.name">Corestu</h1> </div> <div class="hero-text"> <p><span data-i18n="hero.greetingBefore">Hi everyone, I’m </span><span class="name-highlight" data-i18n="hero.name">Corestu</span><span data-i18n="hero.greetingAfter">. Welcome to my </span><i data-i18n="hero.card">personal space</i><span data-i18n="hero.greetingEnd">.</span></p> <p data-i18n="hero.bio">Artificial Intelligence undergraduate, LLM Aftermath Engineer. Proficient in every kind of large language model — at calling them, and at getting the usage request approved. Also proficient in CSS, JavaScript, PHP, C, Java, Python — or rather, at spelling them.</p> <p data-i18n="hero.note">To write, to create — seeking no audience, only the strength to carry on.</p> </div> </header> <span class="section-label" data-i18n="latest.label">Latest</span> <div class="posts-list" id="latest-posts" data-feed="https://moyu.blog/feed" data-limit="5" data-empty="Nothing new yet." data-fallback-label="RSS" data-fallback-text="Moyu.Blog" data-fallback-href="https://moyu.blog" data-min-placeholder-ms="400" data-arrow="↗" data-i18n-attr="data-empty:latest.emptyText;data-fallback-text:latest.fallbackText" aria-busy="true"> <div class="list-item post-item is-placeholder" aria-hidden="true"> <span class="item-label post-date" style="view-transition-name:latest-date-0"> 2026-09-25 </span> <span class="item-link post-link is-static"> <span class="post-title" style="view-transition-name:latest-title-0"> 我的音乐记录，替我记住了这些年 </span> </span> </div><div class="list-item post-item is-placeholder" aria-hidden="true"> <span class="item-label post-date" style="view-transition-name:latest-date-1"> 2026-09-07 </span> <span class="item-link post-link is-static"> <span class="post-title" style="view-transition-name:latest-title-1"> 一转眼三年过去了，那就再重新规划一次吧 </span> </span> </div><div class="list-item post-item is-placeholder" aria-hidden="true"> <span class="item-label post-date" style="view-transition-name:latest-date-2"> 2026-09-02 </span> <span class="item-link post-link is-static"> <span class="post-title" style="view-transition-name:latest-title-2"> 学会“抽身”，方得清醒 </span> </span> </div><div class="list-item post-item is-placeholder" aria-hidden="true"> <span class="item-label post-date" style="view-transition-name:latest-date-3"> 2026-08-12 </span> <span class="item-link post-link is-static"> <span class="post-title" style="view-transition-name:latest-title-3"> 趁还年轻，我把自己蒸馏了 </span> </span> </div><div class="list-item post-item is-placeholder" aria-hidden="true"> <span class="item-label post-date" style="view-transition-name:latest-date-4"> 2026-08-07 </span> <span class="item-link post-link is-static"> <span class="post-title" style="view-transition-name:latest-title-4"> 买东西不要相信AI推荐 </span> </span> </div> <noscript> <style>
-      .post-item.is-placeholder {
-        display: none;
+    </script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CAqDO0tx.js"></script><title>摸鱼大王的个人主页 - 摸鱼小窝</title><link rel="stylesheet" href="/_astro/SiteLayout.DvOs7dCZ.css"></head> <body>  <header class="site-header"> <div class="header-inner"> <a class="site-logo" href="/" aria-label="返回首页"> <img class="logo-image" src="/Corestu.svg" alt="MYDW'S HOME"> </a> <nav class="site-nav" aria-label="主导航"> <a href="/#home" class="nav-link is-active"> 首页 </a><a href="/about" class="nav-link"> 关于我 </a><a href="/#posts" class="nav-link"> 文章 </a><a href="/#projects" class="nav-link"> 作品 </a> </nav> <div class="site-tools" aria-label="页面工具"> <button class="tool-button tool-button-theme" type="button" aria-label="切换黑夜模式" data-theme-toggle> <span class="tool-icon tool-icon-theme" aria-hidden="true"></span> </button> <button class="tool-button tool-button-menu" type="button" aria-label="打开菜单"> <span class="tool-icon tool-icon-menu" aria-hidden="true"></span> </button> </div> </div> <div class="mobile-menu-backdrop" data-menu-close></div> <aside class="mobile-menu-drawer" aria-label="移动端菜单"> <div class="mobile-menu-handle" aria-hidden="true"></div> <div class="mobile-menu-profile"> <img class="mobile-menu-avatar" src="/avatar.jpg" alt="摸鱼大王头像"> <div class="mobile-menu-meta"> <p class="mobile-menu-name">摸鱼大王</p> <p class="mobile-menu-signature">永远相信美好的事情即将发生</p> </div> </div> <nav class="mobile-menu-nav" aria-label="移动端主导航"> <a href="/#home" class="mobile-menu-link is-active" data-menu-link> 首页 </a><a href="/about" class="mobile-menu-link" data-menu-link> 关于我 </a><a href="/#posts" class="mobile-menu-link" data-menu-link> 文章 </a><a href="/#projects" class="mobile-menu-link" data-menu-link> 作品 </a> </nav> </aside> </header> <script>
+  (() => {
+    if (window.__siteHeaderScrollBound) return;
+    window.__siteHeaderScrollBound = true;
+
+    const syncHeaderState = () => {
+      document.documentElement.classList.toggle("is-scrolled", window.scrollY > 8);
+    };
+
+    window.addEventListener("scroll", syncHeaderState, { passive: true });
+    document.addEventListener("astro:page-load", syncHeaderState);
+    syncHeaderState();
+
+    const storageKey = "site-theme";
+    let isMenuOpen = false;
+
+    const applyTheme = (theme) => {
+      if (typeof window.__applySiteTheme === "function") {
+        window.__applySiteTheme(theme);
+        return;
       }
-    </style> <div class="list-item"> <span class="item-label">RSS</span> <a class="item-link" href="https://moyu.blog" target="_blank" rel="noreferrer"> Moyu.Blog <span class="icon-arrow">↗</span> </a> </div> </noscript> </div> <script type="module">(()=>{const u=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],f=t=>{if(!t)return"";const e=t.match(/(\d{1,2})\s+([A-Za-z]{3})\s+(\d{4})/);if(e){const n=u.indexOf(e[2].charAt(0).toUpperCase()+e[2].slice(1,3).toLowerCase());if(n>-1)return`${e[3]}-${String(n+1).padStart(2,"0")}-${e[1].padStart(2,"0")}`}const a=new Date(t);return Number.isNaN(a.getTime())?"":a.toISOString().slice(0,10)},d=(t,e,a,n,c)=>{const i=document.createElement("div");i.className="list-item post-item";const s=document.createElement("span");s.className="item-label post-date",s.textContent=e,s.style.viewTransitionName=`latest-date-${t}`;const r=document.createElement("a");r.className="item-link post-link",r.href=n,r.target="_blank",r.rel="noreferrer",r.title=a;const l=document.createElement("span");l.className="post-title",l.textContent=a,l.style.viewTransitionName=`latest-title-${t}`;const o=document.createElement("span");return o.className="icon-arrow",o.textContent=c,r.append(l,o),i.append(s,r),i},w=t=>{const e=document.createElement("div");e.className="list-item is-solo";const a=document.createElement("span");return a.className="posts-hint",a.textContent=t,a.dataset.i18n="latest.emptyText",e.appendChild(a),e},h=(t,e)=>{if(t.textContent="",!e.length){t.appendChild(w(t.dataset.empty||""));return}const a=t.dataset.arrow||"";e.forEach((n,c)=>{t.appendChild(d(c,n.date,n.title,n.link,a))})},m=(t,e)=>{const a=document.startViewTransition,n=window.matchMedia("(prefers-reduced-motion: reduce)").matches;if(!t.isConnected||typeof a!="function"||n){e();return}try{const c=a.call(document,e);c.ready.catch(()=>{}),c.finished.catch(()=>{})}catch{e()}},y=(t,e)=>{const a=new DOMParser().parseFromString(t,"application/xml");if(a.querySelector("parsererror"))throw new Error("malformed feed");return Array.from(a.querySelectorAll("item")).slice(0,e).map(n=>{const c=n.querySelector("title")?.textContent?.trim()??"",i=n.querySelector("link")?.textContent?.trim()??"",s=f(n.querySelector("pubDate")?.textContent?.trim()??"");return{title:c,link:i,date:s}}).filter(n=>n.title&&n.link)},x=async t=>{if(t.dataset.state)return;t.dataset.state="loading";const e=performance.now(),a=Number(t.dataset.limit)||t.querySelectorAll(".post-item").length,n=Number(t.dataset.minPlaceholderMs)||0,c=t.dataset.arrow||"",i=async()=>{const s=n-(performance.now()-e);s>0&&await new Promise(r=>setTimeout(r,s))};try{const s=await fetch(t.dataset.feed,{headers:{Accept:"application/rss+xml, application/xml, text/xml"}});if(!s.ok)throw new Error(`HTTP ${s.status}`);const r=y(await s.text(),a);await i(),t.dataset.state="done",m(t,()=>h(t,r))}catch(s){t.dataset.state="error",await i(),m(t,()=>{t.textContent="";const r=d(0,t.dataset.fallbackLabel||"",t.dataset.fallbackText||"",t.dataset.fallbackHref||"",c),l=r.querySelector(".post-title");l&&(l.dataset.i18n="latest.fallbackText"),t.appendChild(r),window.__applySiteLang?.()}),console.warn("[latest-posts] failed to load feed:",s)}finally{t.removeAttribute("aria-busy")}},p=()=>{const t=document.getElementById("latest-posts");t&&x(t)};p(),window.__latestPostsBound||(window.__latestPostsBound=!0,document.addEventListener("astro:page-load",p))})();</script> <span class="section-label" data-i18n="index.label">Index</span> <div class="list-container"> <div class="list-col"> <div class="list-item"> <span class="item-label" data-i18n="index.columns.0.0.label"> Writing </span> <a href="https://moyu.blog" class="item-link" target="_blank" rel="noreferrer"> <span data-i18n="index.columns.0.0.text"> Moyu.Blog </span> <span class="icon-arrow">↗</span> </a> </div><div class="list-item"> <span class="item-label" data-i18n="index.columns.0.1.label"> Projects </span> <a href="https://github.com/corestu" class="item-link" target="_blank" rel="noreferrer"> <span data-i18n="index.columns.0.1.text"> GitHub </span> <span class="icon-arrow">↗</span> </a> </div><div class="list-item"> <span class="item-label" data-i18n="index.columns.0.2.label"> Email </span> <a href="mailto:me@imoyu.net" class="item-link" target="_blank" rel="noreferrer"> <span data-i18n="index.columns.0.2.text"> me@imoyu.net </span> <span class="icon-arrow">↗</span> </a> </div> </div><div class="list-col"> <div class="list-item"> <span class="item-label" data-i18n="index.columns.1.0.label"> QQ </span> <span class="item-link is-static"> <span data-i18n="index.columns.1.0.text"> 2643373126 </span> </span> </div><div class="list-item"> <span class="item-label" data-i18n="index.columns.1.1.label"> WeChat </span> <span class="item-link is-static"> <span data-i18n="index.columns.1.1.text"> 1214663 </span> </span> </div> </div> </div> <footer> <span data-i18n="footer.copyright">© 2026 Corestu</span> <span data-i18n="footer.signature">Always believe that something wonderful is about to happen</span> </footer> </main>  </body></html>
+
+      document.documentElement.dataset.theme = theme;
+    };
+
+    const runThemeTransition = (callback) => {
+      if (typeof document.startViewTransition === "function") {
+        document.startViewTransition(() => {
+          callback();
+        });
+        return;
+      }
+
+      callback();
+    };
+
+    const syncMenuState = (open) => {
+      isMenuOpen = open;
+      document.documentElement.classList.toggle("menu-open", open);
+    };
+
+    const bindMobileMenu = () => {
+      document.querySelectorAll(".tool-button-menu").forEach((button) => {
+        if (button.dataset.menuBound === "true") return;
+        button.dataset.menuBound = "true";
+        button.addEventListener("click", () => {
+          syncMenuState(!isMenuOpen);
+        });
+      });
+
+      document.querySelectorAll("[data-menu-close]").forEach((node) => {
+        if (node.dataset.menuCloseBound === "true") return;
+        node.dataset.menuCloseBound = "true";
+        node.addEventListener("click", () => {
+          syncMenuState(false);
+        });
+      });
+
+      document.querySelectorAll("[data-menu-link]").forEach((link) => {
+        if (link.dataset.menuLinkBound === "true") return;
+        link.dataset.menuLinkBound = "true";
+        link.addEventListener("click", () => {
+          syncMenuState(false);
+        });
+      });
+    };
+
+    const bindThemeToggle = () => {
+      document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+        if (button.dataset.themeBound === "true") return;
+        button.dataset.themeBound = "true";
+        button.addEventListener("click", () => {
+          const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+          runThemeTransition(() => {
+            localStorage.setItem(storageKey, nextTheme);
+            applyTheme(nextTheme);
+          });
+        });
+      });
+    };
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        syncMenuState(false);
+      }
+    });
+
+    document.addEventListener("astro:page-load", bindThemeToggle);
+    document.addEventListener("astro:page-load", bindMobileMenu);
+    document.addEventListener("astro:before-preparation", () => {
+      syncMenuState(false);
+    });
+    bindThemeToggle();
+    bindMobileMenu();
+  })();
+</script>  <main class="page-main"> <section class="intro-section" id="home" aria-labelledby="intro-title"> <article class="intro-card"> <div class="intro-profile"> <div class="avatar-wrap"> <img class="avatar-image" src="/avatar.jpg" alt="摸鱼大王头像"> <span class="avatar-status" aria-label="在线中"></span> </div> <div class="intro-heading"> <h1 class="intro-greeting" id="intro-title"> Hi！我是<span class="intro-name">摸鱼大王</span> </h1> </div> </div> <div class="intro-copy" id="about"> <p>大模型善后工程师、本科在读，人工智能专业。熟练各种大语言模型的调用以及请求审批，擅长 CSS、JavaScript、PHP、C、java、python 等单词的拼写</p> </div> <div class="contact-group" id="contact" aria-label="联系组件"> <a class="contact-button" href="https://github.com/corestu" target="_blank" rel="noreferrer"> GitHub </a><a class="contact-button" href="mailto:me@imoyu.net" target="_blank" rel="noreferrer"> Email </a><a class="contact-button" href="https://qm.qq.com/cgi-bin/qm/qr?k=1lLaOec7RlPtbWi6Mck8-ulW-l3aiOBi" target="_blank" rel="noreferrer"> QQ </a> </div> </article> </section> <section class="posts-section anchor-section" id="posts" aria-labelledby="posts-title"> <div class="section-heading"> <h2 class="section-title" id="posts-title">最新文章</h2> <span class="section-more"> 前往 <a class="section-more-link" href="https://moyu.blog" target="_blank" rel="noreferrer"> 摸鱼小窝 </a> </span> </div> <div class="post-list" role="list" data-feed-url="https://moyu.blog/feed" data-feed-count="5"> <a class="post-item" href="https://moyu.blog/2274.html" role="listitem" target="_blank" rel="noreferrer"> <span class="post-main"> <span class="post-title">我的音乐记录，替我记住了这些年</span> <span class="post-tag">#思考</span> </span> <time class="post-date" datetime="2026-09-25">2026.09.25</time> </a><a class="post-item" href="https://moyu.blog/2218.html" role="listitem" target="_blank" rel="noreferrer"> <span class="post-main"> <span class="post-title">一转眼三年过去了，那就再重新规划一次吧</span> <span class="post-tag">#思考</span> </span> <time class="post-date" datetime="2026-09-07">2026.09.07</time> </a><a class="post-item" href="https://moyu.blog/2196.html" role="listitem" target="_blank" rel="noreferrer"> <span class="post-main"> <span class="post-title">学会“抽身”，方得清醒</span> <span class="post-tag">#思考</span> </span> <time class="post-date" datetime="2026-09-02">2026.09.02</time> </a><a class="post-item" href="https://moyu.blog/2129.html" role="listitem" target="_blank" rel="noreferrer"> <span class="post-main"> <span class="post-title">趁还年轻，我把自己蒸馏了</span> <span class="post-tag">#思考</span> </span> <time class="post-date" datetime="2026-08-12">2026.08.12</time> </a><a class="post-item" href="https://moyu.blog/2099.html" role="listitem" target="_blank" rel="noreferrer"> <span class="post-main"> <span class="post-title">买东西不要相信AI推荐</span> <span class="post-tag">#思考</span> </span> <time class="post-date" datetime="2026-08-07">2026.08.07</time> </a> </div> </section> <section class="posts-section featured-section anchor-section" id="featured" aria-labelledby="featured-title"> <div class="section-heading"> <h2 class="section-title" id="featured-title">精选文章</h2> </div> <div class="post-list" role="list"> <a class="post-item" href="https://moyu.blog/1958.html" role="listitem" target="_blank" rel="noreferrer"> <span class="post-main"> <span class="post-title">我总在想：我到底在做什么</span> <span class="post-tag">#随笔</span> </span> <time class="post-date" datetime="2026-04-12">2026.04.12</time> </a><a class="post-item" href="https://moyu.blog/575.html" role="listitem" target="_blank" rel="noreferrer"> <span class="post-main"> <span class="post-title">[严重漏洞]修复PIX主题游客越权操作</span> <span class="post-tag">#折腾</span> </span> <time class="post-date" datetime="2026-03-16">2026.03.16</time> </a> </div> </section> <section class="projects-section anchor-section" id="projects" aria-labelledby="projects-title"> <div class="section-heading projects-heading"> <div> <h2 class="section-title" id="projects-title">我的项目</h2> <p class="section-desc">我参与或独立开发的项目</p> </div> </div> <div class="project-grid"> <a class="project-card" href="https://moyu.blog/" target="_blank" rel="noreferrer"> <p class="project-tag">个人项目</p> <h3 class="project-title">PIX 主题二次开发与深度重构</h3> <p class="project-copy">基于 WordPress 的 PIX 主题进行深度重构与持续优化，包含外观美化、功能新增、交互细节打磨与整体体验提升。</p> </a><article class="project-card"> <p class="project-tag">独立开发</p> <h3 class="project-title">生产管理 Android 应用</h3> <p class="project-copy">面向生产业务流程的信息化管理工具，支持订单信息跟踪、交货进度管理、资金结算记录与材料管理等核心场景。</p> </article><a class="project-card" href="https://zwy.life/post/soak-theme" target="_blank" rel="noreferrer"> <p class="project-tag">参与开发</p> <h3 class="project-title">Astro 博客项目</h3> <p class="project-copy">基于 Astro 的博客项目协作开发，主要参与主题与页面层面的功能实现和细节完善。</p> </a> </div> </section> <section class="sites-section anchor-section" id="sites" aria-labelledby="sites-title"> <div class="section-heading sites-heading"> <div> <h2 class="section-title" id="sites-title">我的站点</h2> </div> </div> <div class="site-card-grid"> <a class="friend-card" href="https://moyu.blog/" target="_blank" rel="noreferrer"> <img class="friend-avatar" src="/avatar.jpg" alt="站点头像"> <span class="friend-content"> <span class="friend-name">摸鱼小窝</span> <span class="friend-desc">记录日常、技术与一些缓慢生长的想法</span> </span> </a> </div> </section> </main>  <footer class="site-footer" aria-label="页脚"> <div class="footer-inner"> <div class="footer-brand"> <a class="site-logo footer-logo" href="/" aria-label="返回首页"> <img class="logo-image" src="/Corestu.svg" alt="MYDW'S HOME"> </a> <p class="footer-signature">永远相信美好的事情即将发生</p> </div> <p class="footer-copy">© 2026 摸鱼大王的个人主页. All rights reserved.</p> </div> </footer>  <script>
+      (() => {
+        if (window.__mouseGlowBound) return;
+        window.__mouseGlowBound = true;
+
+        const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+        if (!canHover) return;
+
+        const root = document.documentElement;
+
+        const showGlow = (x, y) => {
+          root.style.setProperty("--cursor-glow-x", `${x}px`);
+          root.style.setProperty("--cursor-glow-y", `${y}px`);
+          root.style.setProperty("--cursor-glow-opacity", "1");
+        };
+
+        const hideGlow = () => {
+          root.style.setProperty("--cursor-glow-opacity", "0");
+        };
+
+        window.addEventListener(
+          "mousemove",
+          (event) => {
+            showGlow(event.clientX, event.clientY);
+          },
+          { passive: true }
+        );
+
+        window.addEventListener("mouseout", (event) => {
+          if (!event.relatedTarget) {
+            hideGlow();
+          }
+        });
+
+        document.addEventListener("visibilitychange", () => {
+          if (document.hidden) {
+            hideGlow();
+          }
+        });
+
+        document.addEventListener("astro:after-swap", hideGlow);
+      })();
+    </script> </body> </html> <script type="module">const h=r=>r.replace(/^<!\[CDATA\[/,"").replace(/\]\]>$/,"").trim(),p=r=>h(r).replace(/&#(\d+);/g,(e,t)=>String.fromCodePoint(Number(t))).replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&quot;/g,'"').replace(/&apos;/g,"'").replace(/&amp;/g,"&"),i=(r,e)=>{const t=new RegExp(`<${e}[^>]*>([\\s\\S]*?)<\\/${e}>`,"i"),a=r.match(t);return a?p(a[1].trim()):""},f=r=>[...r.matchAll(/<category[^>]*>([\s\S]*?)<\/category>/gi)].map(t=>p(t[1].trim())).filter(Boolean),C=r=>{const e=new Date(r);if(Number.isNaN(e.getTime()))return{date:"",datetime:""};const t=String(e.getUTCFullYear()),a=String(e.getUTCMonth()+1).padStart(2,"0"),n=String(e.getUTCDate()).padStart(2,"0");return{date:`${t}.${a}.${n}`,datetime:`${t}-${a}-${n}`}},$=(r,e)=>[...r.matchAll(/<item\b[\s\S]*?>([\s\S]*?)<\/item>/gi)].slice(0,e).map((a,n)=>{const s=a[1],o=i(s,"title"),c=i(s,"link"),d=f(s),{date:u,datetime:g}=C(i(s,"pubDate"));return{title:o,category:d[0]||"未分类",date:u,datetime:g,href:c||`#post-${n+1}`}}),S=async(r,e)=>{try{const t=await fetch(r.url,{headers:{accept:"application/rss+xml, application/xml, text/xml"}});if(!t.ok)throw new Error(`Feed request failed: ${t.status}`);const a=await t.text(),n=$(a,r.count);return n.length>0?n:e}catch(t){return console.warn("[rss] 使用 fallback 最新文章数据：",t),e}},l=document.querySelector("#posts .post-list"),m=l?.dataset.feedUrl;if(l&&m){const r=Number(l.dataset.feedCount)||5;S({url:m,count:r},[]).then(e=>{e.length!==0&&l.replaceChildren(...e.map(t=>{const a=document.createElement("a");a.className="post-item",a.href=t.href,a.setAttribute("role","listitem"),a.target="_blank",a.rel="noreferrer";const n=document.createElement("span");n.className="post-main";const s=document.createElement("span");s.className="post-title",s.textContent=t.title;const o=document.createElement("span");o.className="post-tag",o.textContent=`#${t.category}`,n.append(s,o);const c=document.createElement("time");return c.className="post-date",c.dateTime=t.datetime,c.textContent=t.date,a.append(n,c),a}))})}</script>
